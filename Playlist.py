@@ -9,11 +9,19 @@ def add_song(title, artist, duration):
     songs.append(song)
     return song
 
-# Ví dụ chạy thử
+def view_playlist():
+    if not songs:
+        print("Playlist hiện đang trống.")
+        return
+        
+    print("Danh sách bài hát trong playlist:")
+    for index, song in enumerate(songs, start=1):
+        print(f"{index}. {song['title']} - {song['artist']} ({song['duration']}s)")
+        
+
+# Test nhanh:
 if __name__ == "__main__":
-    t = input("Tên bài hát: ")
-    a = input("Ca sĩ: ")
-    d = int(input("Thời lượng (giây): "))
-    
-    added = add_song(t, a, d)
-    print("Đã thêm:", added)
+    add_song("Lạc Trôi", "Sơn Tùng MTP", 240)
+    add_song("Nơi Này Có Anh", "Sơn Tùng MTP", 230)
+
+    view_playlist()
